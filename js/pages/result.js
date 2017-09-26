@@ -1,3 +1,5 @@
+import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+
 const result = () =>
   `
 <div class="result">
@@ -102,4 +104,6 @@ const result = () =>
 </div>
 `;
 
-export default result;
+const page = () => headerAndFooterLayout(result());
+
+export default page;

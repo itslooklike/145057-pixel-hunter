@@ -1,3 +1,5 @@
+import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+
 const game3 = () =>
   `
 <div class="game">
@@ -30,4 +32,6 @@ const game3 = () =>
 </div>
 `;
 
-export default game3;
+const page = () => headerAndFooterLayout(game3());
+
+export default page;

@@ -1,4 +1,6 @@
-const game2 = () =>
+import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+
+const game1 = () =>
   `
 <div class="game">
   <p class="game__task">Угадай, фото или рисунок?</p>
@@ -32,4 +34,6 @@ const game2 = () =>
 </div>
 `;
 
-export default game2;
+const page = () => headerAndFooterLayout(game1());
+
+export default page;

@@ -1,3 +1,5 @@
+import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+
 const rules = () =>
   `
 <div class="rules">
@@ -16,4 +18,6 @@ const rules = () =>
 </div>
 `;
 
-export default rules;
+const page = () => headerAndFooterLayout(rules());
+
+export default page;

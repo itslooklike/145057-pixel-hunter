@@ -1,3 +1,5 @@
+import onlyFooterLayout from '../layout/onlyFooterLayout.js';
+
 const intro = () =>
   `
 <div id="main" class="central__content">
@@ -8,4 +10,6 @@ const intro = () =>
 </div>
 `;
 
-export default intro;
+const page = () => onlyFooterLayout(intro());
+
+export default page;

@@ -1,3 +1,5 @@
+import onlyFooterLayout from '../layout/onlyFooterLayout.js';
+
 const greeting = () =>
   `
 <div class="greeting central--blur">
@@ -16,4 +18,6 @@ const greeting = () =>
 </div>
 `;
 
-export default greeting;
+const page = () => onlyFooterLayout(greeting());
+
+export default page;
