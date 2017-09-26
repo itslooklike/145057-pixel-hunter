@@ -1,7 +1,7 @@
 # Личный проект «Пиксель хантер» [![Build status][travis-image]][travis-url]
 
 * Студент: [Алексей Масалов](https://up.htmlacademy.ru/ecmascript/3/user/145057).
-* Наставник: `Неизвестно`.
+* Наставник: ``.
 
 ---
 
