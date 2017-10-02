@@ -1,4 +1,7 @@
 import onlyFooterLayout from '../layout/onlyFooterLayout.js';
+import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
+import renderContent from '../utils/renderContent/renderContent.js';
+import rules from './rules.js';
 
 const greeting = () =>
   `
@@ -18,6 +21,10 @@ const greeting = () =>
 </div>
 `;
 
-const page = () => onlyFooterLayout(greeting());
+const markup = elementFromTemplate(onlyFooterLayout(greeting()));
 
-export default page;
+markup.querySelector(`.greeting__continue`).addEventListener(`click`, evt => {
+  renderContent(rules);
+});
+
+export default markup;

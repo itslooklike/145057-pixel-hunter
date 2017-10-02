@@ -1,7 +1,7 @@
 const elementFromTemplate = stringTemplate => {
   const div = document.createElement(`div`);
 
-  div.innerHTML = stringTemplate();
+  div.innerHTML = stringTemplate;
 
   return div;
 };

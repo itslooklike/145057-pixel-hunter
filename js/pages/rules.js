@@ -1,4 +1,6 @@
 import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
+// import renderContent from '../utils/renderContent/renderContent.js';
 
 const rules = () =>
   `
@@ -18,6 +20,10 @@ const rules = () =>
 </div>
 `;
 
-const page = () => headerAndFooterLayout(rules());
+const markup = elementFromTemplate(headerAndFooterLayout(rules()));
 
-export default page;
+markup.querySelector(`.rules__button`).addEventListener(`click`, evt => {
+  console.log(evt);
+});
+
+export default markup;
