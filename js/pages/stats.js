@@ -1,6 +1,7 @@
 import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
 
-const result = () =>
+const stats = () =>
   `
 <div class="result">
   <h1>Победа!</h1>
@@ -104,6 +105,6 @@ const result = () =>
 </div>
 `;
 
-const page = () => headerAndFooterLayout(result());
+const markup = headerAndFooterLayout(elementFromTemplate(stats()));
 
-export default page;
+export default markup;

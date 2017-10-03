@@ -3,7 +3,7 @@ const elementFromTemplate = stringTemplate => {
 
   div.innerHTML = stringTemplate;
 
-  return div;
+  return div.children[0];
 };
 
 export default elementFromTemplate;

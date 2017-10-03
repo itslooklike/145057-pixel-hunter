@@ -1,17 +1,15 @@
 import header from '../components/header.js';
 import footer from '../components/footer.js';
 
-const mainLayout = content =>
-  `
-<main class="central">
+const mainLayout = content => {
+  const main = document.createElement(`main`);
 
-  ${header()}
+  main.classList.add(`central`);
+  main.appendChild(header());
+  main.appendChild(content);
+  main.appendChild(footer());
 
-  ${content}
-
-  ${footer()}
-
-</main>
-`;
+  return main;
+};
 
 export default mainLayout;

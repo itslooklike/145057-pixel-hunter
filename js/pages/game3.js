@@ -1,4 +1,7 @@
 import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
+import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
+import renderContent from '../utils/renderContent/renderContent.js';
+import stats from './stats.js';
 
 const game3 = () =>
   `
@@ -32,6 +35,14 @@ const game3 = () =>
 </div>
 `;
 
-const page = () => headerAndFooterLayout(game3());
+const markup = headerAndFooterLayout(elementFromTemplate(game3()));
 
-export default page;
+const form = markup.querySelector(`.game__content`);
+
+const changeLevel = () => {
+  renderContent(stats);
+};
+
+form.addEventListener(`click`, changeLevel);
+
+export default markup;

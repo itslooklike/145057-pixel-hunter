@@ -1,6 +1,7 @@
 import onlyFooterLayout from '../layout/onlyFooterLayout.js';
 import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
 import renderContent from '../utils/renderContent/renderContent.js';
+
 import rules from './rules.js';
 
 const greeting = () =>
@@ -21,9 +22,9 @@ const greeting = () =>
 </div>
 `;
 
-const markup = elementFromTemplate(onlyFooterLayout(greeting()));
+const markup = onlyFooterLayout(elementFromTemplate(greeting()));
 
-markup.querySelector(`.greeting__continue`).addEventListener(`click`, evt => {
+markup.querySelector(`.greeting__continue`).addEventListener(`click`, () => {
   renderContent(rules);
 });
 

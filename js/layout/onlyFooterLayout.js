@@ -1,14 +1,13 @@
 import footer from '../components/footer.js';
 
-const mainLayout = content =>
-  `
-<main class="central">
+const mainLayout = content => {
+  const main = document.createElement(`main`);
 
-  ${content}
+  main.classList.add(`central`);
+  main.appendChild(content);
+  main.appendChild(footer());
 
-  ${footer()}
-
-</main>
-`;
+  return main;
+};
 
 export default mainLayout;

@@ -1,6 +1,7 @@
 import headerAndFooterLayout from '../layout/headerAndFooterLayout.js';
 import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
-// import renderContent from '../utils/renderContent/renderContent.js';
+import renderContent from '../utils/renderContent/renderContent.js';
+import game1 from './game1.js';
 
 const rules = () =>
   `
@@ -20,10 +21,22 @@ const rules = () =>
 </div>
 `;
 
-const markup = elementFromTemplate(headerAndFooterLayout(rules()));
+const markup = headerAndFooterLayout(elementFromTemplate(rules()));
 
-markup.querySelector(`.rules__button`).addEventListener(`click`, evt => {
-  console.log(evt);
+const btn = markup.querySelector(`.rules__button`);
+const form = markup.querySelector(`.rules__form`);
+
+form.addEventListener(`input`, evt => {
+  if (evt.target.value === ``) {
+    btn.disabled = true;
+  } else if (btn.disabled) {
+    btn.disabled = false;
+  }
+});
+
+form.addEventListener(`submit`, evt => {
+  evt.preventDefault();
+  renderContent(game1);
 });
 
 export default markup;
