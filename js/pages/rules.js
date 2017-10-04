@@ -26,7 +26,7 @@ const markup = headerAndFooterLayout(elementFromTemplate(rules()));
 const btn = markup.querySelector(`.rules__button`);
 const form = markup.querySelector(`.rules__form`);
 
-form.addEventListener(`input`, evt => {
+form.addEventListener(`input`, (evt) => {
   if (evt.target.value === ``) {
     btn.disabled = true;
   } else if (btn.disabled) {
@@ -34,7 +34,7 @@ form.addEventListener(`input`, evt => {
   }
 });
 
-form.addEventListener(`submit`, evt => {
+form.addEventListener(`submit`, (evt) => {
   evt.preventDefault();
   renderContent(game1);
 });
