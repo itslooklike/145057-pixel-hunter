@@ -50,9 +50,11 @@ const game1 = () =>
 
 const markup = headerAndFooterLayout(elementFromTemplate(game1()));
 
-const goToNextLevel = steps => {
+const goToNextLevel = (steps) => {
   for (let i in steps) {
-    if (!steps[i]) return;
+    if (!steps[i]) {
+      return;
+    }
   }
 
   renderContent(game2);
@@ -60,16 +62,21 @@ const goToNextLevel = steps => {
 
 const form = markup.querySelector(`.game__content`);
 
-const checkInputs = evt => {
+const checkInputs = (evt) => {
   const data = {};
   const inputs = evt.currentTarget.querySelectorAll(`input[type="radio"]`);
 
-  inputs.forEach(item => {
-    const { name, checked } = item;
+  inputs.forEach((item) => {
+    const {name, checked} = item;
 
-    if (data[name] === true) return;
-    if (checked) data[name] = checked;
-    else data[name] = false;
+    if (data[name] === true) {
+      return;
+    }
+    if (checked) {
+      data[name] = checked;
+    } else {
+      data[name] = false;
+    }
   });
 
   goToNextLevel(data);

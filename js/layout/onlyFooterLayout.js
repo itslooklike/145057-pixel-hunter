@@ -1,6 +1,6 @@
 import footer from '../components/footer.js';
 
-const mainLayout = content => {
+const mainLayout = (content) => {
   const main = document.createElement(`main`);
 
   main.classList.add(`central`);
