@@ -1,8 +1,8 @@
-import onlyFooterLayout from "../layout/onlyFooterLayout.js";
-import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate.js";
-import renderContent from "../utils/renderContent/renderContent.js";
+import onlyFooterLayout from "../layout/onlyFooterLayout";
+import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
+import renderContent from "../utils/renderContent/renderContent";
 
-import rules from "./rules.js";
+import rules from "./rules";
 
 const render = () => {
   const greeting = () =>

@@ -1,8 +1,8 @@
-import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate.js";
-import onlyFooterLayout from "../layout/onlyFooterLayout.js";
-import renderContent from "../utils/renderContent/renderContent.js";
+import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
+import onlyFooterLayout from "../layout/onlyFooterLayout";
+import renderContent from "../utils/renderContent/renderContent";
 
-import greeting from "./greeting.js";
+import greeting from "./greeting";
 
 const render = () => {
   const intro = () =>

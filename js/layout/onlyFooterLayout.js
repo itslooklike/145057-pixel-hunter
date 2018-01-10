@@ -1,4 +1,4 @@
-import footer from '../components/footer.js';
+import footer from "../components/footer";
 
 const mainLayout = (content) => {
   const main = document.createElement(`main`);

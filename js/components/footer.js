@@ -1,4 +1,4 @@
-import elementFromTemplate from '../utils/elementFromTemplate/elementFromTemplate.js';
+import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
 
 const footer = () => {
   const html = () => `

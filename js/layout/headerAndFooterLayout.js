@@ -1,5 +1,5 @@
-import header from '../components/header.js';
-import footer from '../components/footer.js';
+import header from "../components/header";
+import footer from "../components/footer";
 
 const mainLayout = (content) => {
   const main = document.createElement(`main`);

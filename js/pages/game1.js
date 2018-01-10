@@ -1,7 +1,7 @@
-import headerAndFooterLayout from "../layout/headerAndFooterLayout.js";
-import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate.js";
-import renderContent from "../utils/renderContent/renderContent.js";
-import game2 from "./game2.js";
+import headerAndFooterLayout from "../layout/headerAndFooterLayout";
+import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
+import renderContent from "../utils/renderContent/renderContent";
+import game2 from "./game2";
 
 const render = () => {
   const game1 = () =>
