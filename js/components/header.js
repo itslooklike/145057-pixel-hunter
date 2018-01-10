@@ -24,7 +24,7 @@ const header = () => {
   const btn = markup.querySelector(`.back`);
 
   const changePage = () => {
-    renderContent(intro);
+    renderContent(intro());
   };
 
   btn.addEventListener(`click`, changePage);
