@@ -1,7 +1,7 @@
-import headerAndFooterLayout from "../layout/headerAndFooterLayout";
-import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
-import renderContent from "../utils/renderContent/renderContent";
-import game2 from "./game2";
+import headerAndFooterLayout from '../layout/headerAndFooterLayout';
+import elementFromTemplate from '../utils/elementFromTemplate';
+import renderContent from '../utils/renderContent';
+import game2 from './game2';
 
 const render = () => {
   const game1 = () =>
@@ -51,7 +51,7 @@ const render = () => {
 
   const markup = headerAndFooterLayout(elementFromTemplate(game1()));
 
-  const goToNextLevel = (steps) => {
+  const goToNextLevel = steps => {
     for (let i in steps) {
       if (!steps[i]) {
         return;
@@ -63,12 +63,12 @@ const render = () => {
 
   const form = markup.querySelector(`.game__content`);
 
-  const checkInputs = (evt) => {
+  const checkInputs = evt => {
     const data = {};
     const inputs = evt.currentTarget.querySelectorAll(`input[type="radio"]`);
 
-    inputs.forEach((item) => {
-      const {name, checked} = item;
+    inputs.forEach(item => {
+      const { name, checked } = item;
 
       if (data[name] === true) {
         return;

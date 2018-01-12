@@ -1,5 +1,5 @@
-import headerAndFooterLayout from "../layout/headerAndFooterLayout";
-import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
+import headerAndFooterLayout from '../layout/headerAndFooterLayout';
+import elementFromTemplate from '../utils/elementFromTemplate';
 
 const render = () => {
   const stats = () =>

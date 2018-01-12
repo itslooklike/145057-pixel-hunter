@@ -1,6 +1,6 @@
-import elementFromTemplate from "../utils/elementFromTemplate/elementFromTemplate";
-import renderContent from "../utils/renderContent/renderContent";
-import intro from "../pages/intro";
+import elementFromTemplate from '../utils/elementFromTemplate';
+import renderContent from '../utils/renderContent';
+import intro from '../pages/intro';
 
 const header = () => {
   const html = () => `
