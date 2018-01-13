@@ -137,3 +137,30 @@ export const tenSlowAnswers = [
     timeForAnswerSpend: 25,
   },
 ];
+
+export const progressBar = [
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 5,
+  },
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 15,
+  },
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 25,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 5,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 15,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 25,
+  },
+];

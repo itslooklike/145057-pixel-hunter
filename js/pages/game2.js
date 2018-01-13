@@ -1,6 +1,7 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
 import renderContent from "../utils/renderContent";
+import progressBar from "../components/progressBar";
 import game3 from "./game3";
 
 const render = (state) => {
@@ -21,20 +22,7 @@ const render = (state) => {
           </label>
           </div>
         </form>
-        <div class="stats">
-          <ul class="stats">
-            <li class="stats__result stats__result--wrong"></li>
-            <li class="stats__result stats__result--slow"></li>
-            <li class="stats__result stats__result--fast"></li>
-            <li class="stats__result stats__result--correct"></li>
-            <li class="stats__result stats__result--wrong"></li>
-            <li class="stats__result stats__result--unknown"></li>
-            <li class="stats__result stats__result--slow"></li>
-            <li class="stats__result stats__result--unknown"></li>
-            <li class="stats__result stats__result--fast"></li>
-            <li class="stats__result stats__result--unknown"></li>
-          </ul>
-        </div>
+        ${progressBar(data)}
       </div>
     `;
 

@@ -1,3 +1,6 @@
+import {progressBar} from "./resultCalc.mock";
+import * as C from "../constants";
+
 export const urlMocks = {
   paintings: [
     `https://k42.kn3.net/CF42609C8.jpg`,
@@ -13,7 +16,8 @@ export const urlMocks = {
 
 const answers = {
   lives: 3,
-  maxLives: 4,
+  maxLives: C.MAX_LIVES,
+  rounds: C.GAME_ROUNDS,
   game1: {
     title: `Угадайте для каждого изображения фото или рисунок?`,
     urls: [urlMocks.paintings[0], urlMocks.photos[0]],
@@ -26,6 +30,7 @@ const answers = {
     title: `Найдите рисунок среди изображений`,
     urls: [urlMocks.paintings[2], urlMocks.photos[1], urlMocks.paintings[1]],
   },
+  answers: progressBar,
 };
 
 export default answers;

@@ -1,8 +1,7 @@
-const FAST_ANSWER = 10;
-const SLOW_ANSWER = 20;
+import * as C from "../constants";
 
 const resultCalc = ({userAnswers, livesLeft}) => {
-  if (userAnswers.length < 10) {
+  if (userAnswers.length < C.GAME_ROUNDS) {
     return -1;
   }
 
@@ -10,17 +9,17 @@ const resultCalc = ({userAnswers, livesLeft}) => {
 
   userAnswers.forEach((answer) => {
     if (answer.answerCorrect) {
-      totalScore += 100;
+      totalScore += C.GAME_ANSWER_CORRECT_COST;
 
-      if (answer.timeForAnswerSpend < FAST_ANSWER) {
-        totalScore += 50;
-      } else if (answer.timeForAnswerSpend > SLOW_ANSWER) {
-        totalScore -= 50;
+      if (answer.timeForAnswerSpend < C.GAME_ANSWER_FAST_TIME) {
+        totalScore += C.GAME_ANSWER_FAST_COST;
+      } else if (answer.timeForAnswerSpend > C.GAME_ANSWER_SLOW_TIME) {
+        totalScore -= C.GAME_ANSWER_SLOW_COST;
       }
     }
   });
 
-  totalScore += livesLeft * 50;
+  totalScore += livesLeft * C.GAME_ANSWER_LIVE_COST;
 
   return totalScore;
 };

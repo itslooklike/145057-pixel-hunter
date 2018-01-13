@@ -1,6 +1,7 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
 import renderContent from "../utils/renderContent";
+import progressBar from "../components/progressBar";
 import stats from "./stats";
 
 const render = (state) => {
@@ -19,20 +20,7 @@ const render = (state) => {
             <img src="${data.game3.urls[2]}" alt="Option 1" width="304" height="455">
           </div>
         </form>
-        <div class="stats">
-          <ul class="stats">
-            <li class="stats__result stats__result--wrong"></li>
-            <li class="stats__result stats__result--slow"></li>
-            <li class="stats__result stats__result--fast"></li>
-            <li class="stats__result stats__result--correct"></li>
-            <li class="stats__result stats__result--wrong"></li>
-            <li class="stats__result stats__result--unknown"></li>
-            <li class="stats__result stats__result--slow"></li>
-            <li class="stats__result stats__result--unknown"></li>
-            <li class="stats__result stats__result--fast"></li>
-            <li class="stats__result stats__result--unknown"></li>
-          </ul>
-        </div>
+        ${progressBar(data)}
       </div>
     `;
 
