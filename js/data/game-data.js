@@ -18,6 +18,8 @@ const answers = {
   lives: 3,
   maxLives: C.MAX_LIVES,
   rounds: C.GAME_ROUNDS,
+  fastAnswer: C.GAME_ANSWER_FAST_TIME,
+  slowAnswer: C.GAME_ANSWER_SLOW_TIME,
   game1: {
     title: `Угадайте для каждого изображения фото или рисунок?`,
     urls: [urlMocks.paintings[0], urlMocks.photos[0]],

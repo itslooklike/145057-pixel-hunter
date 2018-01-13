@@ -1,17 +1,17 @@
-import * as C from "../constants";
-
-const renderDot = (status) => {
-  if (!status) {
+const renderDot = (answer, {fast, slow}) => {
+  if (!answer) {
     return `<li class="stats__result stats__result--unknown"></li>`;
   }
 
-  if (!status.answerCorrect) {
+  if (!answer.answerCorrect) {
     return `<li class="stats__result stats__result--wrong"></li>`;
   }
 
-  if (status.timeForAnswerSpend < C.GAME_ANSWER_FAST_TIME) {
+  if (answer.timeForAnswerSpend < fast) {
     return `<li class="stats__result stats__result--fast"></li>`;
-  } else if (status.timeForAnswerSpend > C.GAME_ANSWER_SLOW_TIME) {
+  }
+
+  if (answer.timeForAnswerSpend > slow) {
     return `<li class="stats__result stats__result--slow"></li>`;
   }
 
@@ -23,7 +23,9 @@ const progressBar = (state) => {
     <div class="stats">
       <ul class="stats">
         ${Array.from({length: data.rounds})
-      .map((_, i) => renderDot(data.answers[i]))
+      .map((_, i) =>
+        renderDot(data.answers[i], {fast: data.fastAnswer, slow: data.slowAnswer})
+      )
       .join(``)}
       </ul>
     </div>
