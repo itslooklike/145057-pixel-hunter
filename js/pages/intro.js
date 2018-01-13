@@ -1,10 +1,10 @@
-import elementFromTemplate from '../utils/elementFromTemplate';
-import onlyFooterLayout from '../layout/onlyFooterLayout';
-import renderContent from '../utils/renderContent';
+import elementFromTemplate from "../utils/elementFromTemplate";
+import onlyFooterLayout from "../layout/onlyFooterLayout";
+import renderContent from "../utils/renderContent";
 
-import greeting from './greeting';
+import greeting from "./greeting";
 
-const render = () => {
+const render = (state) => {
   const intro = () =>
     `
       <div id="main" class="central__content">
@@ -15,10 +15,10 @@ const render = () => {
       </div>
     `;
 
-  const markup = onlyFooterLayout(elementFromTemplate(intro()));
+  const markup = onlyFooterLayout(elementFromTemplate(intro()), state);
 
   markup.querySelector(`.intro__asterisk`).addEventListener(`click`, () => {
-    renderContent(greeting());
+    renderContent(greeting(state));
   });
 
   return markup;

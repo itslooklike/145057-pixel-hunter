@@ -1,10 +1,10 @@
-import onlyFooterLayout from '../layout/onlyFooterLayout';
-import elementFromTemplate from '../utils/elementFromTemplate';
-import renderContent from '../utils/renderContent';
+import onlyFooterLayout from "../layout/onlyFooterLayout";
+import elementFromTemplate from "../utils/elementFromTemplate";
+import renderContent from "../utils/renderContent";
 
-import rules from './rules';
+import rules from "./rules";
 
-const render = () => {
+const render = (state) => {
   const greeting = () =>
     `
     <div class="greeting central--blur">
@@ -23,10 +23,10 @@ const render = () => {
     </div>
   `;
 
-  const markup = onlyFooterLayout(elementFromTemplate(greeting()));
+  const markup = onlyFooterLayout(elementFromTemplate(greeting()), state);
 
   markup.querySelector(`.greeting__continue`).addEventListener(`click`, () => {
-    renderContent(rules());
+    renderContent(rules(state));
   });
 
   return markup;

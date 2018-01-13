@@ -1,9 +1,10 @@
-import elementFromTemplate from '../utils/elementFromTemplate';
-import renderContent from '../utils/renderContent';
-import intro from '../pages/intro';
+import elementFromTemplate from "../utils/elementFromTemplate";
+import renderContent from "../utils/renderContent";
+import headerLives from "./headerLives";
+import intro from "../pages/intro";
 
-const header = () => {
-  const html = () => `
+const header = (state) => {
+  const html = (data) => `
       <header class="header">
         <div class="header__back">
           <button class="back">
@@ -12,15 +13,11 @@ const header = () => {
           </button>
         </div>
         <h1 class="game__timer">NN</h1>
-        <div class="game__lives">
-          <img src="img/heart__empty.svg" class="game__heart" alt="Life" width="32" height="32">
-          <img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">
-          <img src="img/heart__full.svg" class="game__heart" alt="Life" width="32" height="32">
-        </div>
+        ${headerLives(data)}
       </header>
     `;
 
-  const markup = elementFromTemplate(html());
+  const markup = elementFromTemplate(html(state));
   const btn = markup.querySelector(`.back`);
 
   const changePage = () => {

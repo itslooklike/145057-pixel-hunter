@@ -1,4 +1,4 @@
-@import "fonts";
+@import 'fonts';
 
 .game {
   display: flex;
@@ -21,6 +21,7 @@
   position: absolute;
   top: 20px;
   right: 0;
+  display: flex;
 }
 
 .game__task {
@@ -45,6 +46,10 @@
 
   text-align: center;
   vertical-align: middle;
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .game__answer input {
@@ -79,21 +84,20 @@
 
   &--photo {
     input + span {
-      background-image: url("../img/photo_big.png");
+      background-image: url('../img/photo_big.png');
     }
     left: 30px;
   }
 
   &--paint {
     input + span {
-      background-image: url("../img/paint_big.png");
+      background-image: url('../img/paint_big.png');
     }
     right: 30px;
   }
 }
 
 .game__content--wide {
-
   .game__option {
     width: 705px;
     height: 455px;
@@ -104,7 +108,7 @@
   }
 
   .game__answer--photo {
-    left: -100px
+    left: -100px;
   }
 
   .game__answer--paint {
@@ -123,7 +127,7 @@
   }
 
   &:active::after {
-    content: "";
+    content: '';
     position: absolute;
 
     z-index: 1;
@@ -135,5 +139,4 @@
 
     background-color: rgba(223, 78, 78, 0.4);
   }
-
 }

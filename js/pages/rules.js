@@ -1,9 +1,9 @@
-import headerAndFooterLayout from '../layout/headerAndFooterLayout';
-import elementFromTemplate from '../utils/elementFromTemplate';
-import renderContent from '../utils/renderContent';
-import game1 from './game1';
+import headerAndFooterLayout from "../layout/headerAndFooterLayout";
+import elementFromTemplate from "../utils/elementFromTemplate";
+import renderContent from "../utils/renderContent";
+import game1 from "./game1";
 
-const render = () => {
+const render = (state) => {
   const rules = () =>
     `
       <div class="rules">
@@ -22,12 +22,12 @@ const render = () => {
       </div>
     `;
 
-  const markup = headerAndFooterLayout(elementFromTemplate(rules()));
+  const markup = headerAndFooterLayout(elementFromTemplate(rules()), state);
 
   const btn = markup.querySelector(`.rules__button`);
   const form = markup.querySelector(`.rules__form`);
 
-  form.addEventListener(`input`, evt => {
+  form.addEventListener(`input`, (evt) => {
     if (evt.target.value === ``) {
       btn.disabled = true;
     } else if (btn.disabled) {
@@ -35,9 +35,9 @@ const render = () => {
     }
   });
 
-  form.addEventListener(`submit`, evt => {
+  form.addEventListener(`submit`, (evt) => {
     evt.preventDefault();
-    renderContent(game1());
+    renderContent(game1(state));
   });
 
   return markup;

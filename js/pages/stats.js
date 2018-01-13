@@ -1,7 +1,7 @@
-import headerAndFooterLayout from '../layout/headerAndFooterLayout';
-import elementFromTemplate from '../utils/elementFromTemplate';
+import headerAndFooterLayout from "../layout/headerAndFooterLayout";
+import elementFromTemplate from "../utils/elementFromTemplate";
 
-const render = () => {
+const render = (state) => {
   const stats = () =>
     `
       <div class="result">
@@ -106,7 +106,7 @@ const render = () => {
       </div>
     `;
 
-  const markup = headerAndFooterLayout(elementFromTemplate(stats()));
+  const markup = headerAndFooterLayout(elementFromTemplate(stats()), state);
 
   return markup;
 };

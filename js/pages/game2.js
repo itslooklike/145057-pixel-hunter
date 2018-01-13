@@ -1,16 +1,16 @@
-import headerAndFooterLayout from '../layout/headerAndFooterLayout';
-import elementFromTemplate from '../utils/elementFromTemplate';
-import renderContent from '../utils/renderContent';
-import game3 from './game3';
+import headerAndFooterLayout from "../layout/headerAndFooterLayout";
+import elementFromTemplate from "../utils/elementFromTemplate";
+import renderContent from "../utils/renderContent";
+import game3 from "./game3";
 
-const render = () => {
-  const game2 = () =>
+const render = (state) => {
+  const game2 = (data) =>
     `
       <div class="game">
-        <p class="game__task">Угадай, фото или рисунок?</p>
+        <p class="game__task">${data.game2.title}</p>
         <form class="game__content  game__content--wide">
           <div class="game__option">
-            <img src="http://placehold.it/705x455" alt="Option 1" width="705" height="455">
+            <img src="${data.game2.urls[0]}" alt="Option 1" width="705" height="455">
             <label class="game__answer  game__answer--photo">
             <input name="question1" type="radio" value="photo">
             <span>Фото</span>
@@ -38,12 +38,12 @@ const render = () => {
       </div>
     `;
 
-  const markup = headerAndFooterLayout(elementFromTemplate(game2()));
+  const markup = headerAndFooterLayout(elementFromTemplate(game2(state)), state);
 
   const form = markup.querySelector(`.game__content`);
 
   const changeLevel = () => {
-    renderContent(game3());
+    renderContent(game3(state));
   };
 
   form.addEventListener(`change`, changeLevel);
