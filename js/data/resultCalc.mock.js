@@ -164,3 +164,46 @@ export const progressBar = [
     timeForAnswerSpend: 25,
   },
 ];
+
+export const progressBarTen = [
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 5,
+  },
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 15,
+  },
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 25,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 5,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 15,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 25,
+  },
+  {
+    answerCorrect: true,
+    timeForAnswerSpend: 25,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 25,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 25,
+  },
+  {
+    answerCorrect: false,
+    timeForAnswerSpend: 25,
+  },
+];

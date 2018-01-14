@@ -18,22 +18,19 @@ const renderDot = (answer, {fast, slow}) => {
   return `<li class="stats__result stats__result--correct"></li>`;
 };
 
-const progressBar = (state) => {
-  const html = (data) => `
+const progressBar = (state, history) => `
     <div class="stats">
       <ul class="stats">
-        ${Array.from({length: data.rounds})
+        ${Array.from({length: state.rounds})
       .map((_, i) =>
-        renderDot(data.answers[i], {fast: data.fastAnswer, slow: data.slowAnswer})
+        renderDot(history[i], {
+          fast: state.fastAnswerTime,
+          slow: state.slowAnswerTime,
+        })
       )
       .join(``)}
       </ul>
     </div>
   `;
-
-  const markup = html(state);
-
-  return markup;
-};
 
 export default progressBar;

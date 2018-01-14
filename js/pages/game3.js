@@ -20,7 +20,7 @@ const render = (state) => {
             <img src="${data.game3.urls[2]}" alt="Option 1" width="304" height="455">
           </div>
         </form>
-        ${progressBar(data)}
+        ${progressBar(data, data.currentGameAnswers)}
       </div>
     `;
 

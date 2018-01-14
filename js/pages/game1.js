@@ -33,7 +33,7 @@ const render = (state) => {
           </label>
           </div>
         </form>
-        ${progressBar(data)}
+        ${progressBar(data, data.currentGameAnswers)}
       </div>
     `;
 
