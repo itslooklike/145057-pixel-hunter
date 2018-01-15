@@ -1,17 +1,21 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
-import renderContent from "../utils/renderContent";
+// import renderContent from "../utils/renderContent";
+import gameChanger from "../utils/gameChanger";
 import progressBar from "../components/progressBar";
-import game2 from "./game2";
+// import game2 from "./game2";
+import * as S from "../selectors";
 
 const render = (state) => {
+  const {game1: game} = S.getGames(state);
+
   const game1 = (data) =>
     `
       <div class="game">
-        <p class="game__task">${data.game1.title}</p>
+        <p class="game__task">${game.title}</p>
         <form class="game__content">
           <div class="game__option">
-            <img src="${data.game1.urls[0]}" alt="Option 1" width="468" height="458">
+            <img src="${game.urls[0]}" alt="Option 1" width="468" height="458">
             <label class="game__answer game__answer--photo">
             <input name="question1" type="radio" value="photo">
             <span>Фото</span>
@@ -22,7 +26,7 @@ const render = (state) => {
           </label>
           </div>
           <div class="game__option">
-            <img src="${data.game1.urls[1]}" alt="Option 2" width="468" height="458">
+            <img src="${game.urls[1]}" alt="Option 2" width="468" height="458">
             <label class="game__answer  game__answer--photo">
             <input name="question2" type="radio" value="photo">
             <span>Фото</span>
@@ -46,7 +50,8 @@ const render = (state) => {
       }
     }
 
-    renderContent(game2(state));
+    // renderContent(game2(state));
+    gameChanger(state);
   };
 
   const form = markup.querySelector(`.game__content`);
@@ -72,6 +77,8 @@ const render = (state) => {
   };
 
   form.addEventListener(`change`, checkInputs);
+
+  state.currentScreen = `game1`;
 
   return markup;
 };

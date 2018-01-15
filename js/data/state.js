@@ -23,18 +23,28 @@ const state = {
   slowAnswerTime: C.GAME_ANSWER_SLOW_TIME,
   slowAnswerCost: C.GAME_ANSWER_SLOW_COST,
   correctAnswerCost: C.GAME_ANSWER_CORRECT_COST,
-  game1: {
-    title: `Угадайте для каждого изображения фото или рисунок?`,
-    urls: [urlMocks.paintings[0], urlMocks.photos[0]],
+  screens: {
+    intro: `intro`,
+    greeting: `greeting`,
+    rules: `rules`,
+    game: `game`,
+    stats: `stats`,
   },
-  game2: {
-    title: `Угадай, фото или рисунок?`,
-    urls: [urlMocks.paintings[1]],
+  gamesList: {
+    game1: {
+      title: `Угадайте для каждого изображения фото или рисунок?`,
+      urls: [urlMocks.paintings[0], urlMocks.photos[0]],
+    },
+    game2: {
+      title: `Угадай, фото или рисунок?`,
+      urls: [urlMocks.paintings[1]],
+    },
+    game3: {
+      title: `Найдите рисунок среди изображений`,
+      urls: [urlMocks.paintings[2], urlMocks.photos[1], urlMocks.paintings[1]],
+    },
   },
-  game3: {
-    title: `Найдите рисунок среди изображений`,
-    urls: [urlMocks.paintings[2], urlMocks.photos[1], urlMocks.paintings[1]],
-  },
+  currentScreen: ``,
   currentGameAnswers: progressBarTen,
   results: [],
 };

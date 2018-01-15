@@ -1,7 +1,6 @@
 import elementFromTemplate from "../utils/elementFromTemplate";
 import onlyFooterLayout from "../layout/onlyFooterLayout";
 import renderContent from "../utils/renderContent";
-
 import greeting from "./greeting";
 
 const render = (state) => {
@@ -20,6 +19,8 @@ const render = (state) => {
   markup.querySelector(`.intro__asterisk`).addEventListener(`click`, () => {
     renderContent(greeting(state));
   });
+
+  state.currentScreen = `intro`;
 
   return markup;
 };

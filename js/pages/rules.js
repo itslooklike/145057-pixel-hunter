@@ -40,6 +40,8 @@ const render = (state) => {
     renderContent(game1(state));
   });
 
+  state.currentScreen = `rules`;
+
   return markup;
 };
 

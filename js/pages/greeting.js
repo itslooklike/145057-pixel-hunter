@@ -29,6 +29,8 @@ const render = (state) => {
     renderContent(rules(state));
   });
 
+  state.currentScreen = `greeting`;
+
   return markup;
 };
 
