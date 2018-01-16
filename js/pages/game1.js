@@ -1,9 +1,7 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
-// import renderContent from "../utils/renderContent";
 import gameChanger from "../utils/gameChanger";
 import progressBar from "../components/progressBar";
-// import game2 from "./game2";
 import * as S from "../selectors";
 
 const render = (state) => {
@@ -50,7 +48,6 @@ const render = (state) => {
       }
     }
 
-    // renderContent(game2(state));
     gameChanger(state);
   };
 

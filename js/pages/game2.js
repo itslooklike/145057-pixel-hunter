@@ -1,8 +1,6 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
-import renderContent from "../utils/renderContent";
 import progressBar from "../components/progressBar";
-import game3 from "./game3";
 import * as S from "../selectors";
 
 const render = (state) => {
@@ -34,7 +32,7 @@ const render = (state) => {
   const form = markup.querySelector(`.game__content`);
 
   const changeLevel = () => {
-    renderContent(game3(state));
+    // renderContent(game3(state));
   };
 
   form.addEventListener(`change`, changeLevel);
