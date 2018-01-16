@@ -97,8 +97,6 @@ const render = (state) => {
 
   const markup = headerAndFooterLayout(elementFromTemplate(stats(state)), state);
 
-  state.currentScreen = `stats`;
-
   return markup;
 };
 export default render;

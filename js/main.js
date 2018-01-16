@@ -1,7 +1,4 @@
-import renderContent from "./utils/renderContent";
-import intro from "./pages/intro";
-// import stats from "./pages/stats";
+import screenChanger from "./utils/screenChanger";
 import state from "./data/state";
 
-renderContent(intro(state));
-// renderContent(stats(state));
+screenChanger(state);

@@ -1,6 +1,6 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
-import gameChanger from "../utils/gameChanger";
+import screenChanger from "../utils/screenChanger";
 
 const render = (state) => {
   const rules = () =>
@@ -36,10 +36,8 @@ const render = (state) => {
 
   form.addEventListener(`submit`, (evt) => {
     evt.preventDefault();
-    gameChanger(state);
+    screenChanger(state);
   });
-
-  state.currentScreen = `rules`;
 
   return markup;
 };

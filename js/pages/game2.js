@@ -1,6 +1,7 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
 import progressBar from "../components/progressBar";
+import screenChanger from "../utils/screenChanger";
 import * as S from "../selectors";
 
 const render = (state) => {
@@ -32,13 +33,12 @@ const render = (state) => {
   const form = markup.querySelector(`.game__content`);
 
   const changeLevel = () => {
-    // renderContent(game3(state));
+    screenChanger(state);
   };
 
   form.addEventListener(`change`, changeLevel);
 
-  state.currentScreen = `game2`;
-
+  state.currentGameLevel = `game2`;
   return markup;
 };
 

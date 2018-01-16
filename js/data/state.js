@@ -24,11 +24,26 @@ const state = {
   slowAnswerCost: C.GAME_ANSWER_SLOW_COST,
   correctAnswerCost: C.GAME_ANSWER_CORRECT_COST,
   screens: {
-    intro: `intro`,
-    greeting: `greeting`,
-    rules: `rules`,
-    game: `game`,
-    stats: `stats`,
+    intro: {
+      name: `intro`,
+      nextScreen: `greeting`,
+    },
+    greeting: {
+      name: `greeting`,
+      nextScreen: `rules`,
+    },
+    rules: {
+      name: `rules`,
+      nextScreen: `game`,
+    },
+    game: {
+      name: `game`,
+      nextScreen: `stats`,
+    },
+    stats: {
+      name: `stats`,
+      nextScreen: `intro`,
+    },
   },
   gamesList: {
     game1: {
@@ -45,6 +60,8 @@ const state = {
     },
   },
   currentScreen: ``,
+  currentGameLevel: ``,
+  currentRound: 0,
   currentGameAnswers: progressBarTen,
   results: [],
 };

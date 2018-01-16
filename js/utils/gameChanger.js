@@ -15,18 +15,15 @@ const gameChanger = (state) => {
 
   let attemps = 20;
 
-  while (games[randomValue] === state.currentScreen) {
+  while (games[randomValue] === state.currentGameLevel) {
     randomValue = Math.floor(Math.random() * games.length);
-    console.log(`boom!`);
 
     if (--attemps < 0) {
-      console.error(`FUCK!!!`);
       return;
     }
   }
 
   const nextGameName = games[randomValue];
-  console.log(`--nextGameName`, nextGameName);
   const nextGameRenderer = rotation[nextGameName];
 
   renderContent(nextGameRenderer(state));

@@ -1,8 +1,6 @@
 import onlyFooterLayout from "../layout/onlyFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
-import renderContent from "../utils/renderContent";
-
-import rules from "./rules";
+import screenChanger from "../utils/screenChanger";
 
 const render = (state) => {
   const greeting = () =>
@@ -26,10 +24,8 @@ const render = (state) => {
   const markup = onlyFooterLayout(elementFromTemplate(greeting()), state);
 
   markup.querySelector(`.greeting__continue`).addEventListener(`click`, () => {
-    renderContent(rules(state));
+    screenChanger(state);
   });
-
-  state.currentScreen = `greeting`;
 
   return markup;
 };

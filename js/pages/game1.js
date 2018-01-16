@@ -1,6 +1,6 @@
 import headerAndFooterLayout from "../layout/headerAndFooterLayout";
 import elementFromTemplate from "../utils/elementFromTemplate";
-import gameChanger from "../utils/gameChanger";
+import screenChanger from "../utils/screenChanger";
 import progressBar from "../components/progressBar";
 import * as S from "../selectors";
 
@@ -48,7 +48,7 @@ const render = (state) => {
       }
     }
 
-    gameChanger(state);
+    screenChanger(state);
   };
 
   const form = markup.querySelector(`.game__content`);
@@ -75,8 +75,7 @@ const render = (state) => {
 
   form.addEventListener(`change`, checkInputs);
 
-  state.currentScreen = `game1`;
-
+  state.currentGameLevel = `game1`;
   return markup;
 };
 export default render;
