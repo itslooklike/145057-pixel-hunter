@@ -29,16 +29,13 @@ const checkForGameExit = (state) => {
 };
 
 const screenChanger = (state) => {
-  console.log(state);
   const {screens, currentScreen} = state;
   let nextScreen;
 
   if (!currentScreen) {
     nextScreen = `intro`;
   } else if ((currentScreen === `game` && checkForGameExit(state)) || currentScreen === `rules`) {
-    // тут ченить придумать
     nextScreen = `game`;
-    console.log(state.currentRound);
 
     const games = Object.keys(state.gamesList);
     let randomValue = Math.floor(Math.random() * games.length);
@@ -49,7 +46,8 @@ const screenChanger = (state) => {
       randomValue = Math.floor(Math.random() * games.length);
 
       if (--attemps < 0) {
-        console.log(`FUCK`);
+        // eslint-disable-next-line
+        console.error(`FUCK`);
         return;
       }
     }
@@ -58,7 +56,6 @@ const screenChanger = (state) => {
     const nextGameRenderer = RATATION_MAP[nextGameName];
     renderContent(nextGameRenderer(state));
 
-    // и тут причесать
     state.currentRound++;
     state.currentScreen = `game`;
     return;
@@ -69,9 +66,6 @@ const screenChanger = (state) => {
   renderContent(PAGE_MAP[nextScreen](state));
 
   state.currentScreen = nextScreen;
-
-  // eslint-disable-next-line
-  console.log(state.currentScreen);
 };
 
 export default screenChanger;

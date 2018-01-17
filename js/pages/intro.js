@@ -1,8 +1,10 @@
 import elementFromTemplate from "../utils/elementFromTemplate";
 import onlyFooterLayout from "../layout/onlyFooterLayout";
 import screenChanger from "../utils/screenChanger";
+import imageGenerator from "../utils/imageGenerator";
 
 const render = (state) => {
+  imageGenerator(state);
   const intro = () =>
     `
       <div id="main" class="central__content">

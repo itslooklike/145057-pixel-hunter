@@ -64,6 +64,7 @@ const state = {
   currentRound: 0,
   currentGameAnswers: progressBarTen,
   results: [],
+  TMP_URLS: urlMocks,
 };
 
 export default state;

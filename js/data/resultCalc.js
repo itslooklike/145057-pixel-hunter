@@ -5,8 +5,6 @@ const resultCalc = ({userAnswers, livesLeft}) => {
     return -1;
   }
 
-  // console.log(userAnswers);
-
   const result = {
     history: userAnswers,
     totalScore: 0,
