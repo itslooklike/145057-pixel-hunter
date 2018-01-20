@@ -28,7 +28,14 @@ const checkForGameExit = (state) => {
   }
 };
 
-const screenChanger = (state) => {
+const screenChanger = (state, forceGame) => {
+  if (forceGame) {
+    state.currentScreen = `game`;
+    state.currentRound = 1;
+    renderContent(RATATION_MAP[forceGame](state));
+    return;
+  }
+
   const {screens, currentScreen} = state;
   let nextScreen;
 
@@ -54,6 +61,7 @@ const screenChanger = (state) => {
 
     const nextGameName = games[randomValue];
     const nextGameRenderer = RATATION_MAP[nextGameName];
+
     renderContent(nextGameRenderer(state));
 
     state.currentRound++;
