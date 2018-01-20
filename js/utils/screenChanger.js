@@ -21,7 +21,7 @@ const RATATION_MAP = {
 };
 
 const checkForGameExit = (state) => {
-  if (state.currentRound > state.rounds) {
+  if (state.currentRound >= state.rounds || state.lives <= 0) {
     return false;
   } else {
     return true;
@@ -66,6 +66,7 @@ const screenChanger = (state, forceGame) => {
 
     state.currentRound++;
     state.currentScreen = `game`;
+
     return;
   } else {
     nextScreen = screens[currentScreen].nextScreen;

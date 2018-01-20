@@ -59,6 +59,10 @@ const render = (state) => {
       timeForAnswerSpend: 10,
     });
 
+    if (!isAnswerRight) {
+      --state.lives;
+    }
+
     screenChanger(state);
   };
 
@@ -71,7 +75,7 @@ const render = (state) => {
     inputs.forEach((item) => {
       const {name, checked, value} = item;
 
-      if (data[name] && data[name].status) {
+      if (name in data && data[name].status) {
         return;
       }
 

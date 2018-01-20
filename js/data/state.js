@@ -1,4 +1,3 @@
-import {progressBarTen} from "./resultCalc.mock";
 import * as C from "../constants";
 
 export const urlMocks = {

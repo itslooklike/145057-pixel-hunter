@@ -56,6 +56,10 @@ const render = (state) => {
       timeForAnswerSpend: 10,
     });
 
+    if (!isAnswerRight) {
+      --state.lives;
+    }
+
     screenChanger(state);
   };
 

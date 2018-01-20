@@ -1,10 +1,6 @@
 import * as C from "../constants";
 
 const resultCalc = ({userAnswers, livesLeft}) => {
-  if (userAnswers.length < C.GAME_ROUNDS) {
-    return -1;
-  }
-
   const result = {
     history: userAnswers,
     totalScore: 0,
