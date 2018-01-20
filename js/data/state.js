@@ -48,21 +48,18 @@ const state = {
   gamesList: {
     game1: {
       title: `Угадайте для каждого изображения фото или рисунок?`,
-      urls: [urlMocks.paintings[0], urlMocks.photos[0]],
     },
     game2: {
       title: `Угадай, фото или рисунок?`,
-      urls: [urlMocks.paintings[1]],
     },
     game3: {
       title: `Найдите рисунок среди изображений`,
-      urls: [urlMocks.paintings[2], urlMocks.photos[1], urlMocks.paintings[1]],
     },
   },
   currentScreen: ``,
   currentGameLevel: ``,
   currentRound: 0,
-  currentGameAnswers: progressBarTen,
+  currentGameAnswers: [],
   results: [],
   TMP_URLS: urlMocks,
 };
