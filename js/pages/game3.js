@@ -34,7 +34,11 @@ const render = (state) => {
     let tmp = imageGenerator(state);
 
     if (tmp.cat === `paintings` && isPaintingGet) {
-      tmp = imageGenerator(state, `photos`);
+      while (game.imgData.find((item) => item.imgUrl === tmp.imgUrl)) {
+        tmp = imageGenerator(state, `photos`);
+
+        console.log(`regenerate1`);
+      }
     } else if (tmp.cat === `paintings` && !isPaintingGet) {
       isPaintingGet = true;
     } else if (tmp.cat === `photos` && !isPaintingGet && game.imgData.length === 2) {

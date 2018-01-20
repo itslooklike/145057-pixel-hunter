@@ -40,7 +40,17 @@ const render = (state) => {
       </div>
     `;
 
-  game.imgData = [imageGenerator(state), imageGenerator(state)];
+  game.imgData = [];
+  game.imgData.push(imageGenerator(state));
+
+  let tmp = imageGenerator(state);
+
+  while (tmp.imgUrl === game.imgData[0].imgUrl) {
+    tmp = imageGenerator(state);
+  }
+
+  game.imgData.push(tmp);
+
   const markup = headerAndFooterLayout(elementFromTemplate(game1(state)), state);
 
   const goToNextLevel = (steps) => {
