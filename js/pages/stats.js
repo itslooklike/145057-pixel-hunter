@@ -67,11 +67,7 @@ const render = (state) => {
       <div class="result">
         <h1>Победа!</h1>
 
-        ${data.results
-      .map((item, idx) => {
-        return table(item, idx + 1, data);
-      })
-      .join(``)}
+        ${data.results.map((item, idx) => table(item, idx + 1, data)).join(``)}
 
         <table class="result__table">
           <tr>
