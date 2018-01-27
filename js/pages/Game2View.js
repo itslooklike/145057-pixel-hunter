@@ -13,6 +13,8 @@ export default class Game2View extends AbstractView {
   get template() {
     this.game.imgData = [imageGenerator(this.state)];
 
+    console.log(this.game.imgData.map((i) => i.cat));
+
     return `
       <div class="game">
         <p class="game__task">${this.game.title}</p>

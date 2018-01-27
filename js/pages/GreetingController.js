@@ -1,5 +1,6 @@
 import GreetingView from "./GreetingView";
 import onlyFooterLayoutView from "../layout/onlyFooterLayoutView";
+import screenChanger from "../utils/screenChanger";
 
 export default class GreetingController {
   constructor(state) {
@@ -9,7 +10,7 @@ export default class GreetingController {
 
   init() {
     this.view.onClick = () => {
-      console.log(`onClick from GreetingController`, this.state);
+      screenChanger(this.state);
     };
 
     return onlyFooterLayoutView(this.view.element, this.state);

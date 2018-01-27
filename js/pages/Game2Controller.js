@@ -1,5 +1,6 @@
 import Game2View from "./Game2View";
 import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
+import screenChanger from "../utils/screenChanger";
 
 export default class Game2Controller {
   constructor(state) {
@@ -20,7 +21,7 @@ export default class Game2Controller {
         --this.state.lives;
       }
 
-      console.log(`changeLevel from Game2Controller`, this.state);
+      screenChanger(this.state);
     };
 
     return headerAndFooterLayoutView(this.view.element, this.state);

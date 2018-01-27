@@ -62,9 +62,10 @@ export default class StatsView extends AbstractView {
   }
 
   get template() {
+    const livesLeft = S.getLives(this.state);
     const result = resultCalc({
       userAnswers: S.getAnswers(this.state),
-      livesLeft: S.getLives(this.state),
+      livesLeft,
     });
 
     this.state.results.push(result);
@@ -73,7 +74,7 @@ export default class StatsView extends AbstractView {
 
     return `
       <div class="result">
-        <h1>Победа!</h1>
+        <h1>${livesLeft > 0 ? `Победа!` : `Поражение!`}</h1>
 
         ${this.state.results.map((item, idx) => table(item, idx + 1, this.state)).join(``)}
 

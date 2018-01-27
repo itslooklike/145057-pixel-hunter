@@ -1,23 +1,24 @@
 import renderContent from "../utils/renderContent";
-import intro from "../pages/intro";
-import greeting from "../pages/greeting";
-import rules from "../pages/rules";
-import game1 from "../pages/game1";
-import game2 from "../pages/game2";
-import game3 from "../pages/game3";
-import stats from "../pages/stats";
+
+import IntroController from "../pages/IntroController";
+import GreetingController from "../pages/GreetingController";
+import RulesController from "../pages/RulesController";
+import StatsConroller from "../pages/StatsConroller";
+import Game1Controller from "../pages/Game1Controller";
+import Game2Controller from "../pages/Game2Controller";
+import Game3Controller from "../pages/Game3Controller";
 
 const PAGE_MAP = {
-  intro,
-  greeting,
-  rules,
-  stats,
+  intro: IntroController,
+  greeting: GreetingController,
+  rules: RulesController,
+  stats: StatsConroller,
 };
 
 const RATATION_MAP = {
-  game1,
-  game2,
-  game3,
+  game1: Game1Controller,
+  game2: Game2Controller,
+  game3: Game3Controller,
 };
 
 const checkForGameExit = (state) => {
@@ -47,12 +48,12 @@ const screenChanger = (state, forceGame) => {
     const games = Object.keys(state.gamesList);
     let randomValue = Math.floor(Math.random() * games.length);
 
-    let attemps = 20;
+    let attempts = 20;
 
     while (games[randomValue] === state.currentGameLevel) {
       randomValue = Math.floor(Math.random() * games.length);
 
-      if (--attemps < 0) {
+      if (--attempts < 0) {
         // eslint-disable-next-line
         console.error(`FUCK`);
         return;
@@ -60,9 +61,8 @@ const screenChanger = (state, forceGame) => {
     }
 
     const nextGameName = games[randomValue];
-    const nextGameRenderer = RATATION_MAP[nextGameName];
 
-    renderContent(nextGameRenderer(state));
+    renderContent(new RATATION_MAP[nextGameName](state).init());
 
     state.currentRound++;
     state.currentScreen = `game`;
@@ -72,8 +72,7 @@ const screenChanger = (state, forceGame) => {
     nextScreen = screens[currentScreen].nextScreen;
   }
 
-  renderContent(PAGE_MAP[nextScreen](state));
-
+  renderContent(new PAGE_MAP[nextScreen](state).init());
   state.currentScreen = nextScreen;
 };
 

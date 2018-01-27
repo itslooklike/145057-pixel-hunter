@@ -1,4 +1,5 @@
 import HeaderView from "./HeaderView";
+import screenChanger from "../utils/screenChanger";
 
 export default class HeaderController {
   constructor(state) {
@@ -8,7 +9,7 @@ export default class HeaderController {
 
   init() {
     this.view.onClick = () => {
-      console.log(`state from HeaderController`, this.state);
+      screenChanger(this.state);
     };
 
     return this.view.element;

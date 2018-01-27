@@ -1,5 +1,6 @@
 import RulesView from "./RulesView";
 import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
+import screenChanger from "../utils/screenChanger";
 
 export default class RulesController {
   constructor(state) {
@@ -17,7 +18,7 @@ export default class RulesController {
     };
 
     this.view.onSubmit = () => {
-      console.log(`onSubmit from RulesController`, this.state);
+      screenChanger(this.state);
     };
 
     return headerAndFooterLayoutView(this.view.element, this.state);

@@ -33,6 +33,8 @@ export default class Game3View extends AbstractView {
       this.game.imgData.push(tmp);
     }
 
+    console.log(this.game.imgData.map((i) => i.cat));
+
     return `
       <div class="game">
         <p class="game__task">${this.game.title}</p>

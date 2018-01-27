@@ -1,5 +1,6 @@
 import IntroView from "./IntroView";
 import onlyFooterLayoutView from "../layout/onlyFooterLayoutView";
+import screenChanger from "../utils/screenChanger";
 
 export default class IntroController {
   constructor(state) {
@@ -9,7 +10,7 @@ export default class IntroController {
 
   init() {
     this.view.onClick = () => {
-      console.log(`onClick from IntroController`, this.state);
+      screenChanger(this.state);
     };
 
     return onlyFooterLayoutView(this.view.element, this.state);
