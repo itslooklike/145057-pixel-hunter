@@ -1,5 +1,4 @@
-import headerAndFooterLayout from "../layout/headerAndFooterLayout";
-import elementFromTemplate from "../utils/elementFromTemplate";
+import AbstractView from "../view/AbstractView";
 import progressBar from "../components/progressBar";
 import resultCalc from "../data/resultCalc";
 import * as S from "../selectors";
@@ -56,18 +55,27 @@ const table = (result, index, state) => `
   </table>
 `;
 
-const render = (state) => {
-  const stats = (data) => {
-    const result = resultCalc({userAnswers: S.getAnswers(data), livesLeft: S.getLives(data)});
-    data.results.push(result);
-    data.results.push(result);
-    data.results.push(result);
+export default class StatsView extends AbstractView {
+  constructor(state) {
+    super();
+    this.state = state;
+  }
+
+  get template() {
+    const result = resultCalc({
+      userAnswers: S.getAnswers(this.state),
+      livesLeft: S.getLives(this.state),
+    });
+
+    this.state.results.push(result);
+    this.state.results.push(result);
+    this.state.results.push(result);
 
     return `
       <div class="result">
         <h1>Победа!</h1>
 
-        ${data.results.map((item, idx) => table(item, idx + 1, data)).join(``)}
+        ${this.state.results.map((item, idx) => table(item, idx + 1, this.state)).join(``)}
 
         <table class="result__table">
           <tr>
@@ -93,10 +101,5 @@ const render = (state) => {
 
       </div>
     `;
-  };
-
-  const markup = headerAndFooterLayout(elementFromTemplate(stats(state)), state);
-
-  return markup;
-};
-export default render;
+  }
+}

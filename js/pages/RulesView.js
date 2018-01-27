@@ -1,10 +1,8 @@
-import headerAndFooterLayout from "../layout/headerAndFooterLayout";
-import elementFromTemplate from "../utils/elementFromTemplate";
-import screenChanger from "../utils/screenChanger";
+import AbstractView from "../view/AbstractView";
 
-const render = (state) => {
-  const rules = () =>
-    `
+export default class RulesView extends AbstractView {
+  get template() {
+    return `
       <div class="rules">
         <h1 class="rules__title">Правила</h1>
 
@@ -20,26 +18,23 @@ const render = (state) => {
         </form>
       </div>
     `;
+  }
 
-  const markup = headerAndFooterLayout(elementFromTemplate(rules()), state);
+  bind() {
+    const btn = this._element.querySelector(`.rules__button`);
+    const form = this._element.querySelector(`.rules__form`);
 
-  const btn = markup.querySelector(`.rules__button`);
-  const form = markup.querySelector(`.rules__form`);
+    form.addEventListener(`input`, (evt) => {
+      this.onInput(evt, btn);
+    });
 
-  form.addEventListener(`input`, (evt) => {
-    if (evt.target.value === ``) {
-      btn.disabled = true;
-    } else if (btn.disabled) {
-      btn.disabled = false;
-    }
-  });
+    form.addEventListener(`submit`, (evt) => {
+      evt.preventDefault();
+      this.onSubmit();
+    });
+  }
 
-  form.addEventListener(`submit`, (evt) => {
-    evt.preventDefault();
-    screenChanger(state);
-  });
+  onInput() {}
 
-  return markup;
-};
-
-export default render;
+  onSubmit() {}
+}
