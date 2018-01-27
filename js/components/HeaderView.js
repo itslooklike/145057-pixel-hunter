@@ -16,7 +16,7 @@ export default class HeaderView extends AbstractView {
             <img src="img/logo_small.svg" width="101" height="44">
           </button>
         </div>
-        <h1 class="game__timer">NN</h1>
+        <h1 id="gameTimer" class="game__timer">00</h1>
         ${headerLives(this.state)}
       </header>
     `;

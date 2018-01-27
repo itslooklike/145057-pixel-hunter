@@ -1,7 +1,7 @@
 import StatsView from "./StatsView";
 import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
 
-export default class StatsConroller {
+export default class StatsController {
   constructor(state) {
     this.view = new StatsView(state);
     this.state = state;

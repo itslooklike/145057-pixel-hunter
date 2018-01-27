@@ -27,6 +27,7 @@ const state = {
   lives: 3,
   maxLives: C.MAX_LIVES,
   rounds: C.GAME_ROUNDS,
+  timeToAnswer: C.GAME_TIME_ANSWER,
   fastAnswerTime: C.GAME_ANSWER_FAST_TIME,
   fastAnswerCost: C.GAME_ANSWER_FAST_COST,
   slowAnswerTime: C.GAME_ANSWER_SLOW_TIME,

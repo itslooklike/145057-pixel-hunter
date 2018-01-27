@@ -1,6 +1,8 @@
 import Game1View from "./Game1View";
 import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
 import screenChanger from "../utils/screenChanger";
+import timerStarter from "../utils/timerStarter";
+import addAnswer from "../utils/addAnswer";
 
 export default class Game1Controller {
   constructor(state) {
@@ -8,30 +10,25 @@ export default class Game1Controller {
     this.state = state;
   }
 
-  goToNextLevel(steps) {
+  goToNextLevel(steps, timer) {
     for (let i in steps) {
       if (!steps[i].status) {
         return;
       }
     }
 
-    const isAnswerRight =
+    const isAnswerCorrect =
       steps[`question1`].cat === this.view.game.imgData[0].cat &&
       steps[`question2`].cat === this.view.game.imgData[1].cat;
 
-    this.state.currentGameAnswers.push({
-      answerCorrect: isAnswerRight,
-      timeForAnswerSpend: 10,
-    });
-
-    if (!isAnswerRight) {
-      --this.state.lives;
-    }
-
+    addAnswer(this.state, isAnswerCorrect, timer);
     screenChanger(this.state);
   }
 
   init() {
+    const timer = timerStarter(this.state, (state) => addAnswer(state));
+    timer.start();
+
     this.view.checkInputs = (evt) => {
       const data = {};
       const inputs = evt.currentTarget.querySelectorAll(`input[type="radio"]`);
@@ -51,7 +48,7 @@ export default class Game1Controller {
         }
       });
 
-      this.goToNextLevel(data);
+      this.goToNextLevel(data, timer);
     };
 
     return headerAndFooterLayoutView(this.view.element, this.state);

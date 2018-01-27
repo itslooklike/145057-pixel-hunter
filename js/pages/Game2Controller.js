@@ -1,6 +1,8 @@
 import Game2View from "./Game2View";
 import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
 import screenChanger from "../utils/screenChanger";
+import timerStarter from "../utils/timerStarter";
+import addAnswer from "../utils/addAnswer";
 
 export default class Game2Controller {
   constructor(state) {
@@ -9,18 +11,13 @@ export default class Game2Controller {
   }
 
   init() {
+    const timer = timerStarter(this.state, (state) => addAnswer(state));
+    timer.start();
+
     this.view.changeLevel = (evt) => {
-      const isAnswerRight = evt.target.value === this.view.game.imgData[0].cat;
+      const isAnswerCorrect = evt.target.value === this.view.game.imgData[0].cat;
 
-      this.state.currentGameAnswers.push({
-        answerCorrect: isAnswerRight,
-        timeForAnswerSpend: 10,
-      });
-
-      if (!isAnswerRight) {
-        --this.state.lives;
-      }
-
+      addAnswer(this.state, isAnswerCorrect, timer);
       screenChanger(this.state);
     };
 

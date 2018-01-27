@@ -1,8 +1,8 @@
 const app = document.querySelector(`#mainApp`);
 
-const renderContent = (content) => {
-  app.innerHTML = ``;
-  app.appendChild(content);
+const renderContent = (content, {node} = {node: app}) => {
+  node.innerHTML = ``;
+  node.appendChild(content);
 };
 
 export default renderContent;

@@ -1,9 +1,8 @@
 import renderContent from "../utils/renderContent";
-
 import IntroController from "../pages/IntroController";
 import GreetingController from "../pages/GreetingController";
 import RulesController from "../pages/RulesController";
-import StatsConroller from "../pages/StatsConroller";
+import StatsController from "../pages/StatsController";
 import Game1Controller from "../pages/Game1Controller";
 import Game2Controller from "../pages/Game2Controller";
 import Game3Controller from "../pages/Game3Controller";
@@ -12,7 +11,7 @@ const PAGE_MAP = {
   intro: IntroController,
   greeting: GreetingController,
   rules: RulesController,
-  stats: StatsConroller,
+  stats: StatsController,
 };
 
 const RATATION_MAP = {
@@ -29,14 +28,7 @@ const checkForGameExit = (state) => {
   }
 };
 
-const screenChanger = (state, forceGame) => {
-  if (forceGame) {
-    state.currentScreen = `game`;
-    state.currentRound = 1;
-    renderContent(RATATION_MAP[forceGame](state));
-    return;
-  }
-
+const screenChanger = (state) => {
   const {screens, currentScreen} = state;
   let nextScreen;
 
