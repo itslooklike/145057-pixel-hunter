@@ -3,9 +3,12 @@ const addAnswer = (state, isAnswerCorrect = false, timer) => {
     timer.clear();
   }
 
-  state.currentGameAnswers.push({
+  const {timeToAnswer, currentGameAnswers} = state;
+
+  currentGameAnswers.push({
     answerCorrect: isAnswerCorrect,
-    timeForAnswerSpend: timer ? timer.currentTime || 0 : 0,
+    timeForAnswerSpend:
+      timer && timer.currentTime ? timeToAnswer - timer.currentTime : timeToAnswer,
   });
 
   if (!isAnswerCorrect) {

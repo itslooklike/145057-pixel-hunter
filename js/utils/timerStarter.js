@@ -1,5 +1,5 @@
 import timer from "../data/timer";
-import roundTimeUpdate from "../components/roundTimeUpdate";
+import headerTimerUpdate from "../components/headerTimerUpdate";
 import screenChanger from "./screenChanger";
 
 const timerStarter = (state, falseCallback) => ({
@@ -17,7 +17,7 @@ const timerStarter = (state, falseCallback) => ({
 
     this.interval = setInterval(() => {
       this.currentTime = gameTimer.tick();
-      roundTimeUpdate(this.currentTime);
+      headerTimerUpdate(this.currentTime);
     }, 1000);
   },
 });

@@ -1,13 +1,14 @@
 const timer = (time, callback) => ({
   time,
   tick() {
-    if (this.time >= 0) {
-      console.log(`tick!`);
-      return this.time--;
+    if (this.time > 0) {
+      console.log(`tick!`, this.time);
+      return --this.time;
     } else {
       callback();
-      console.log(`it callback from timer`);
     }
+
+    return this.time;
   },
 });
 

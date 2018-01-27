@@ -1,7 +1,7 @@
 import renderContent from "../utils/renderContent";
 import elementFromTemplate from "../utils/elementFromTemplate";
 
-const roundTimeUpdate = (time) => {
+const headerTimerUpdate = (time) => {
   const timerContainer = document.querySelector(`#gameTimer`);
   const markup = `<span>${time}</span>`;
   const div = elementFromTemplate(markup);
@@ -9,4 +9,4 @@ const roundTimeUpdate = (time) => {
   renderContent(div, {node: timerContainer});
 };
 
-export default roundTimeUpdate;
+export default headerTimerUpdate;
