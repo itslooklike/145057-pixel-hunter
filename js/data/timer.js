@@ -2,10 +2,11 @@ const timer = (time, callback) => ({
   time,
   tick() {
     if (this.time > 0) {
-      console.log(`tick!`, this.time);
-      return --this.time;
+      --this.time;
     } else {
-      callback();
+      setTimeout(() => {
+        callback();
+      }, 0);
     }
 
     return this.time;

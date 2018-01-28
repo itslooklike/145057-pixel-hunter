@@ -9,7 +9,9 @@
     "start": "gulp serve",
     "testLint": "npm run eslint && gulp test",
     "test": "gulp test",
-    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
+    "st": "static build",
+    "update:packages":
+      "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -29,12 +31,11 @@
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "node-static": "^0.7.10"
   },
   "babel": {
-    "plugins": [
-      "transform-es2015-modules-commonjs"
-    ]
+    "plugins": ["transform-es2015-modules-commonjs"]
   },
   "engines": {
     "node": "6.11.3"

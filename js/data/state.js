@@ -24,7 +24,7 @@ export const urlMocks = {
 };
 
 const state = {
-  lives: 3,
+  lives: C.MAX_LIVES,
   maxLives: C.MAX_LIVES,
   rounds: C.GAME_ROUNDS,
   timeToAnswer: C.GAME_TIME_ANSWER,

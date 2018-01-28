@@ -14,7 +14,7 @@ const PAGE_MAP = {
   stats: StatsController,
 };
 
-const RATATION_MAP = {
+const ROTATION_MAP = {
   game1: Game1Controller,
   game2: Game2Controller,
   game3: Game3Controller,
@@ -54,7 +54,7 @@ const screenChanger = (state) => {
 
     const nextGameName = games[randomValue];
 
-    renderContent(new RATATION_MAP[nextGameName](state).init());
+    renderContent(new ROTATION_MAP[nextGameName](state).init());
 
     state.currentRound++;
     state.currentScreen = `game`;
