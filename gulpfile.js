@@ -15,8 +15,8 @@ const rollup = require('gulp-better-rollup');
 const sourcemaps = require('gulp-sourcemaps');
 const mocha = require('gulp-mocha');
 
-gulp.task('style', function() {
-  return gulp
+gulp.task('style', () =>
+  gulp
     .src('sass/style.scss')
     .pipe(plumber())
     .pipe(sass())
@@ -38,80 +38,90 @@ gulp.task('style', function() {
     .pipe(server.stream())
     .pipe(minify())
     .pipe(rename('style.min.css'))
-    .pipe(gulp.dest('build/css'));
-});
+    .pipe(gulp.dest('build/css'))
+);
 
-gulp.task('scripts', function() {
-  return gulp
+gulp.task('scripts', () =>
+  gulp
     .src('js/main.js')
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(rollup({}, 'iife'))
     .pipe(sourcemaps.write(''))
-    .pipe(gulp.dest('build/js'));
-});
+    .pipe(gulp.dest('build/js'))
+);
 
-gulp.task('test', function() {
-  return gulp.src(['js/**/*.test.js'], { read: false }).pipe(
+gulp.task('test', () =>
+  gulp.src(['js/**/*.test.js'], { read: false }).pipe(
     mocha({
       compilers: ['js:babel-register'], // Включим поддержку "import/export" в Mocha тестах
       reporter: 'spec', // Вид в котором я хочу отображать результаты тестирования
     })
-  );
-});
+  )
+);
 
-gulp.task('imagemin', ['copy'], function() {
-  return gulp
-    .src('build/img/**/*.{jpg,png,gif}')
-    .pipe(
-      imagemin([
-        imagemin.optipng({ optimizationLevel: 3 }),
-        imagemin.jpegtran({ progressive: true }),
-      ])
-    )
-    .pipe(gulp.dest('build/img'));
-});
+gulp.task('clean', () => del('build'));
 
-gulp.task('copy-html', function() {
-  return gulp
+gulp.task('copy-html', () =>
+  gulp
     .src('*.{html,ico}')
     .pipe(gulp.dest('build'))
-    .pipe(server.stream());
-});
+    .pipe(server.stream())
+);
 
-gulp.task('copy', ['copy-html', 'scripts', 'style'], function() {
-  return gulp.src(['fonts/**/*.{woff,woff2}', 'img/*.*'], { base: '.' }).pipe(gulp.dest('build'));
-});
+gulp.task(
+  'copy',
+  gulp.series('copy-html', 'scripts', 'style', () =>
+    gulp.src(['fonts/**/*.{woff,woff2}', 'img/*.*'], { base: '.' }).pipe(gulp.dest('build'))
+  )
+);
 
-gulp.task('clean', function() {
-  return del('build');
-});
+gulp.task('assemble', gulp.series('clean', 'copy', 'style'));
 
-gulp.task('js-watch', ['scripts'], function(done) {
-  server.reload();
-  done();
-});
+gulp.task(
+  'imagemin',
+  gulp.series('copy', () =>
+    gulp
+      .src('build/img/**/*.{jpg,png,gif}')
+      .pipe(
+        imagemin([
+          imagemin.optipng({ optimizationLevel: 3 }),
+          imagemin.jpegtran({ progressive: true }),
+        ])
+      )
+      .pipe(gulp.dest('build/img'))
+  )
+);
 
-gulp.task('serve', ['assemble'], function() {
-  server.init({
-    server: './build',
-    notify: false,
-    open: false,
-    port: 3502,
-    ui: false,
-  });
+gulp.task(
+  'js-watch',
+  gulp.series('scripts', done => {
+    server.reload();
+    done();
+  })
+);
 
-  gulp.watch('sass/**/*.{scss,sass}', ['style']);
-  gulp.watch('*.html').on('change', e => {
-    if (e.type !== 'deleted') {
-      gulp.start('copy-html');
-    }
-  });
-  gulp.watch('js/**/*.js', ['js-watch']);
-});
+gulp.task(
+  'serve',
+  gulp.series('assemble', () => {
+    server.init({
+      server: './build',
+      notify: false,
+      open: false,
+      port: 3502,
+      ui: false,
+    });
 
-gulp.task('assemble', ['clean'], function() {
-  gulp.start('copy', 'style');
-});
+    gulp.watch('sass/**/*.{scss,sass}', gulp.series('style'));
 
-gulp.task('build', ['assemble', 'imagemin']);
+    gulp.watch('*.html').on('change', e => {
+      if (e.type !== 'deleted') {
+        gulp.start('copy-html');
+      }
+    });
+
+    gulp.watch('js/**/*.js', gulp.series('js-watch'));
+  })
+);
+
+gulp.task('build', gulp.series('assemble', 'imagemin'));
