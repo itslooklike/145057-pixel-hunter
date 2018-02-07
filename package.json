@@ -10,8 +10,10 @@
     "testLint": "npm run eslint && gulp test",
     "test": "gulp test",
     "st": "static build",
-    "update:packages":
-      "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
+    "c": "rm -rf node_modules",
+    "ci": "npm run c && npm i",
+    "cis": "npm run ci && npm start",
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",
@@ -35,7 +37,9 @@
     "node-static": "^0.7.10"
   },
   "babel": {
-    "plugins": ["transform-es2015-modules-commonjs"]
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
   },
   "engines": {
     "node": "6.11.3"
