@@ -1,7 +1,7 @@
-import AbstractView from "../view/AbstractView";
-import progressBar from "../components/progressBar";
-import resultCalc from "../data/resultCalc";
-import * as S from "../selectors";
+import AbstractView from "../../view/AbstractView";
+import progressBar from "../../components/progressBar";
+import resultCalc from "../../data/resultCalc";
+import * as S from "../../selectors";
 
 const lineFast = ({fastAmount, fastCost, fastScore}) => `
   <tr>

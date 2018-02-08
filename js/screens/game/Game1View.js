@@ -1,7 +1,7 @@
-import AbstractView from "../view/AbstractView";
-import progressBar from "../components/progressBar";
-import imageGenerator from "../utils/imageGenerator";
-import * as S from "../selectors";
+import AbstractView from "../../view/AbstractView";
+import progressBar from "../../components/progressBar";
+import imageGenerator from "../../utils/imageGenerator";
+import * as S from "../../selectors";
 
 export default class Game1View extends AbstractView {
   constructor(state) {

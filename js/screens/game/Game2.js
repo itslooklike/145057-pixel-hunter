@@ -1,10 +1,10 @@
 import Game2View from "./Game2View";
-import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
-import screenChanger from "../utils/screenChanger";
-import timerStarter from "../utils/timerStarter";
-import addAnswer from "../utils/addAnswer";
+import headerAndFooterLayoutView from "../../layout/headerAndFooterLayoutView";
+import screenChanger from "./game";
+import timerStarter from "../../utils/timerStarter";
+import addAnswer from "../../utils/addAnswer";
 
-export default class Game2Controller {
+export default class Game2 {
   constructor(state) {
     this.view = new Game2View(state);
     this.state = state;

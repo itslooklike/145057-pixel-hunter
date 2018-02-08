@@ -1,7 +1,8 @@
 import StatsView from "./StatsView";
-import headerAndFooterLayoutView from "../layout/headerAndFooterLayoutView";
+import headerAndFooterLayoutView from "../../layout/headerAndFooterLayoutView";
+import renderContent from "../../utils/renderContent";
 
-export default class StatsController {
+export default class Stats {
   constructor(state) {
     this.view = new StatsView(state);
     this.state = state;
@@ -16,6 +17,6 @@ export default class StatsController {
       }
     };
 
-    return headerAndFooterLayoutView(this.view.element, this.state);
+    renderContent(headerAndFooterLayoutView(this.view.element, this.state));
   }
 }

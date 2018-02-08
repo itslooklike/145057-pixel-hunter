@@ -1,6 +1,6 @@
 import timer from "../data/timer";
 import headerTimerUpdate from "../components/headerTimerUpdate";
-import screenChanger from "./screenChanger";
+import screenChanger from "../screens/game/game";
 
 const timerStarter = (state, falseCallback) => ({
   interval: null,

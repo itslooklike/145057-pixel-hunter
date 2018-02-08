@@ -1,7 +1,7 @@
 import HeaderView from "./HeaderView";
-import screenChanger from "../utils/screenChanger";
+import App from "../application";
 
-export default class HeaderController {
+class Header {
   constructor(state) {
     this.view = new HeaderView(state);
     this.state = state;
@@ -9,9 +9,11 @@ export default class HeaderController {
 
   init() {
     this.view.onClick = () => {
-      screenChanger(this.state);
+      App.showIntro();
     };
 
     return this.view.element;
   }
 }
+
+export default Header;

@@ -1,4 +1,3 @@
-import screenChanger from "./utils/screenChanger";
-import state from "./data/state";
+import App from "./application";
 
-screenChanger(state);
+App.showIntro();
